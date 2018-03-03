@@ -2,7 +2,10 @@
 
 makecode I2C LCD1602 package for micro:bit  
 
-![](lcd.jpg)
+Author: shaoziyang  
+Date:   2018.Mar  
+  
+![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/lcd.jpg)
 
 ## usage
 
@@ -12,18 +15,45 @@ open your microbit makecode project, in Add Package, paste
 
 to search box then search.
 
-## TODO
+## API
 
-- [ ] Add a reference for your blocks here
-- [ ] Turn on your automated build on https://travis-ci.org
-- [ ] Use "pxt bump" to create a tagged release on GitHub
-- [ ] Get your package reviewed and approved https://makecode.microbit.org/packages/approval
+- LcdInit(Addr: number)  
+Initial LCD  
+Addr: I2C Address.  
 
+- ShowNumber(n: number, x: number, y: number)  
+show a number in LCD at given position.  
+n: number will be show  
+x: is LCD column position, [0 - 15]  
+y: is LCD row position, [0 - 1]  
+
+- ShowString(s: string, x: number, y: number)  
+show a string in LCD at given position.  
+s: string will be show  
+x: is LCD column position, [0 - 15]  
+y: is LCD row position, [0 - 1]  
+
+- LcdOn()  
+turn on LCD  
+
+- LcdOff()  
+turn off LCD  
+
+- LcdClear()  
+clear LCD content  
+
+- BacklightOn()  
+turn on LCD backlight  
+
+- BacklightOff()  
+turn off LCD backlight  
 
 
 ## License
 
 MIT
+
+Copyright (c) 2018 microbit-makecode-packages
 
 ## Supported targets
 
