@@ -7,7 +7,7 @@
 /**
  * Custom blocks
  */
-//% weight=100 color=#0fbc11 icon="□"
+//% weight=100 color=#0fbc11 icon="▀"
 namespace I2C_LCD1602 {
 
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
@@ -44,9 +44,10 @@ namespace I2C_LCD1602 {
     }
 
     /**
-     * initia LCD, set I2C address.
-     * @param Addr is i2c address for LCD, eg: 63
+     * initial LCD, set I2C address.
+     * @param Addr is i2c address for LCD, eg: 39, 63
      */
+    //% help=functions/show-number
     //% block
     export function LcdInit(Addr: number) {
         i2cAddr = Addr
@@ -66,7 +67,7 @@ namespace I2C_LCD1602 {
 
     /**
      * show a number in LCD at given position
-     * @param n is number will be show, eg: 100
+     * @param n is number will be show, eg: 10, 100, 200
      * @param x is LCD column position, eg: 0
      * @param y is LCD row position, eg: 0
      */
