@@ -15,6 +15,10 @@ open your microbit makecode project, in Add Package, paste
 
 to search box then search.
 
+## I2C Address  
+- PCF8574: 39  
+- PCF8574A: 63  
+
 ## API
 
 - LcdInit(Addr: number)  
