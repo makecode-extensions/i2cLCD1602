@@ -1,4 +1,3 @@
-
 /**
  * makecode I2C LCD1602 package for microbit.
  * From microbit/micropython Chinese community.
@@ -66,8 +65,8 @@ namespace I2C_LCD1602 {
     }
 
     /**
-     * show a number in LCD
-     * @param n is number will be show, eg: 1
+     * show a number in LCD at given position
+     * @param n is number will be show, eg: 100
      * @param x is LCD column position, eg: 0
      * @param y is LCD row position, eg: 0
      */
@@ -78,8 +77,8 @@ namespace I2C_LCD1602 {
     }
 
     /**
-     * show a string in LCD
-     * @param s is string will be show, eg: ''Hello''
+     * show a string in LCD at given position
+     * @param s is string will be show, eg: "Hello"
      * @param x is LCD column position, [0 - 15], eg: 0
      * @param y is LCD row position, [0 - 1], eg: 0
      */
