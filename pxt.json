@@ -1,9 +1,10 @@
 {
     "name": "i2cLCD1602",
+    "version": "1.0.0",
     "description": "makecode I2C LCD1602 package for micro:bit",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
+        "core": "*"
     },
     "files": [
         "README.md",
