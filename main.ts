@@ -44,7 +44,7 @@ namespace I2C_LCD1602 {
     }
 
     /**
-     * initial LCD, set I2C address.
+     * initial LCD, set I2C address. Default is 39/63 for PCF8574/PCF8574A
      * @param Addr is i2c address for LCD, eg: 39, 63
      */
     //% help=functions/show-number
