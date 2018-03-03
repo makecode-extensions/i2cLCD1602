@@ -46,7 +46,7 @@ namespace I2C_LCD1602 {
 
     /**
      * initia LCD, set I2C address.
-     * @param Addr, default is 63 (PCF8574A). eg: 63
+     * @param Addr is i2c address for LCD, eg: 63
      */
     //% block
     export function LcdInit(Addr: number) {
@@ -67,9 +67,9 @@ namespace I2C_LCD1602 {
 
     /**
      * show a number in LCD
-     * @param n, number will be show, eg: 1
-     * @param x, LCD column position, eg: 0
-     * @param y, LCD row position, eg: 0
+     * @param n is number will be show, eg: 1
+     * @param x is LCD column position, eg: 0
+     * @param y is LCD row position, eg: 0
      */
     //% block
     export function ShowNumber(n: number, x: number, y: number): void {
@@ -79,9 +79,9 @@ namespace I2C_LCD1602 {
 
     /**
      * show a string in LCD
-     * @param s, string will be show, eg: ''Hello''
-     * @param x, LCD column position, [0 - 15], eg: 0
-     * @param y, LCD row position, [0 - 1], eg: 0
+     * @param s is string will be show, eg: ''Hello''
+     * @param x is LCD column position, [0 - 15], eg: 0
+     * @param y is LCD row position, [0 - 1], eg: 0
      */
     //% block
     export function ShowString(s: string, x: number, y: number): void {

@@ -1,13 +1,8 @@
-I2C_LCD1602.Init(63)
-I2C_LCD1602.dBacklightOff()
-basic.pause(500)
-I2C_LCD1602.BacklightOn()
-I2C_LCD1602.ShowNumber(123, 0, 0)
-I2C_LCD1602.ShowString("Hello", 3, 1)
-I2C_LCD1602.LcdOff()
-basic.pause(500)
-I2C_LCD1602.LcdOn()
+let item = 0
+I2C_LCD1602.LcdInit(63)
+I2C_LCD1602.ShowString("Hello", 0, 0)
 basic.forever(() => {
-    I2C_LCD1602.ShowNumber(Math.random(10), Math.random(16), Math.random(2))
-    basic.pause(100)
+    item += 1
+    I2C_LCD1602.ShowNumber(item, 0, 1)
+    basic.pause(1000)
 })
