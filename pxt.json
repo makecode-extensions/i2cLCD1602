@@ -1,18 +1,19 @@
 {
-    "name": "i2cLCD1602",
-    "author": "shaoziyang",
-    "version": "1.0.0",
-    "description": "makecode I2C LCD1602 package for micro:bit",
+    "name": "powerfunctions",
+    "version": "1.2.0",
+    "description": " Control your Lego® Power Functions motors using your PXT board, an infrared LED and MakeCode. This package is neither endorsed nor authorized by the LEGO Group.",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
+        "core": "*"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/de/powerfunctions-strings.json",
+        "_locales/de/powerfunctions-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
-    "public": false
+    "public": true
 }
