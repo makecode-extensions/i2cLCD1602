@@ -48,6 +48,9 @@ turn on LCD backlight
 - BacklightOff()  
 turn off LCD backlight  
 
+## Demo
+
+![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/demo.jpg)
 
 ## License
 
