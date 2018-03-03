@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+# i2cLCD1602
 
-You can use the [editor on GitHub](https://github.com/microbit-makecode-packages/i2cLCD1602/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+makecode I2C LCD1602 package for micro:bit  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![](lcd.jpg)
 
-### Markdown
+## usage
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+open your microbit makecode project, in Add Package, paste  
 
-```markdown
-Syntax highlighted code block
+"https://github.com/microbit-makecode-packages/i2cLCD1602"  
 
-# Header 1
-## Header 2
-### Header 3
+to search box then search.
 
-- Bulleted
-- List
+## TODO
 
-1. Numbered
-2. List
+- [ ] Add a reference for your blocks here
+- [ ] Turn on your automated build on https://travis-ci.org
+- [ ] Use "pxt bump" to create a tagged release on GitHub
+- [ ] Get your package reviewed and approved https://makecode.microbit.org/packages/approval
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## License
 
-### Jekyll Themes
+MIT
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/microbit-makecode-packages/i2cLCD1602/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Supported targets
 
-### Support or Contact
+* for PXT/microbit
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+[From microbit/micropython Chinese community](http://www.micropython.org.cn)
