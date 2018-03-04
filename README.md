@@ -11,7 +11,7 @@ Date:   2018.Mar
 
 open your microbit makecode project, in Add Package, paste  
 
-"https://github.com/microbit-makecode-packages/i2cLCD1602"  
+https://github.com/microbit-makecode-packages/i2cLCD1602  
 
 to search box then search.
 
