@@ -4,6 +4,8 @@ makecode I2C LCD1602 package for micro:bit
 
 Author: shaoziyang  
 Date:   2018.Mar  
+
+![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/icon.png)  
   
 ![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/lcd.jpg)
 
