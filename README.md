@@ -39,13 +39,13 @@ s: string will be show
 x: is LCD column position, [0 - 15]  
 y: is LCD row position, [0 - 1]  
 
-- LcdOn()  
+- on()  
 turn on LCD  
 
-- LcdOff()  
+- off()  
 turn off LCD  
 
-- LcdClear()  
+- clear()  
 clear LCD content  
 
 - BacklightOn()  

@@ -9,7 +9,6 @@
  */
 //% weight=100 color=#0fbc11 icon="▀"
 namespace I2C_LCD1602 {
-
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // backlight control
     let RS: number      // command/data
@@ -44,11 +43,11 @@ namespace I2C_LCD1602 {
     }
 
     /**
-     * initial LCD, set I2C address. Default is 39/63 for PCF8574/PCF8574A
+     * initial LCD, set I2C address. Address is 39/63 for PCF8574/PCF8574A
      * @param Addr is i2c address for LCD, eg: 39, 63
      */
-    //% help=functions/show-number
-    //% block
+    //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
+    //% weight=100 blockGap=8
     export function LcdInit(Addr: number) {
         i2cAddr = Addr
         BK = 8
@@ -71,7 +70,8 @@ namespace I2C_LCD1602 {
      * @param x is LCD column position, eg: 0
      * @param y is LCD row position, eg: 0
      */
-    //% block
+    //% blockId="I2C_LCD1620_SHOW_NUMBER" block="show number %n|at x %x|y %y"
+    //% weight=90 blockGap=8
     export function ShowNumber(n: number, x: number, y: number): void {
         let s = n.toString()
         ShowString(s, x, y)
@@ -83,7 +83,8 @@ namespace I2C_LCD1602 {
      * @param x is LCD column position, [0 - 15], eg: 0
      * @param y is LCD row position, [0 - 1], eg: 0
      */
-    //% block
+    //% blockId="I2C_LCD1620_SHOW_STRING" block="show string %s|at x %x|y %y"
+    //% weight=90 blockGap=8
     export function ShowString(s: string, x: number, y: number): void {
         let a: number
 
@@ -102,31 +103,35 @@ namespace I2C_LCD1602 {
     /**
      * turn on LCD
      */
-    //% block
-    export function LcdOn(): void {
+    //% blockId="I2C_LCD1620_ON" block="turn on LCD"
+    //% weight=80 blockGap=8
+    export function on(): void {
         cmd(0x0C)
     }
 
     /**
      * turn off LCD
      */
-    //% block
-    export function LcdOff(): void {
+    //% blockId="I2C_LCD1620_OFF" block="turn off LCD"
+    //% weight=80 blockGap=8
+    export function off(): void {
         cmd(0x08)
     }
 
     /**
      * clear all display content
      */
-    //% block
-    export function LcdClear(): void {
+    //% blockId="I2C_LCD1620_CLEAR" block="clear LCD"
+    //% weight=75 blockGap=8
+    export function clear(): void {
         cmd(0x01)
     }
 
     /**
      * turn on LCD backlight
      */
-    //% block
+    //% blockId="I2C_LCD1620_BACKLIGHT_ON" block="turn on backlight"
+    //% weight=70 blockGap=8
     export function BacklightOn(): void {
         BK = 8
         dat(0)
@@ -135,7 +140,8 @@ namespace I2C_LCD1602 {
     /**
      * turn off LCD backlight
      */
-    //% block
+    //% blockId="I2C_LCD1620_BACKLIGHT_OFF" block="turn off backlight"
+    //% weight=70 blockGap=8
     export function BacklightOff(): void {
         BK = 0
         dat(0)
