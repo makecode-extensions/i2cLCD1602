@@ -54,6 +54,13 @@ turn on LCD backlight
 - BacklightOff()  
 turn off LCD backlight  
 
+- shl()
+shift left screen
+
+- shr()
+shift right screen
+
+
 ## Demo
 
 ![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/demo.jpg)

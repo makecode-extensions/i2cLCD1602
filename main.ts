@@ -108,7 +108,7 @@ namespace I2C_LCD1602 {
      * turn on LCD
      */
     //% blockId="I2C_LCD1620_ON" block="turn on LCD"
-    //% weight=80 blockGap=8
+    //% weight=81 blockGap=8
     export function on(): void {
         cmd(0x0C)
     }
@@ -126,7 +126,7 @@ namespace I2C_LCD1602 {
      * clear all display content
      */
     //% blockId="I2C_LCD1620_CLEAR" block="clear LCD"
-    //% weight=75 blockGap=8
+    //% weight=85 blockGap=8
     export function clear(): void {
         cmd(0x01)
     }
@@ -135,10 +135,10 @@ namespace I2C_LCD1602 {
      * turn on LCD backlight
      */
     //% blockId="I2C_LCD1620_BACKLIGHT_ON" block="turn on backlight"
-    //% weight=70 blockGap=8
+    //% weight=71 blockGap=8
     export function BacklightOn(): void {
         BK = 8
-        dat(0)
+        cmd(0)
     }
 
     /**
@@ -148,7 +148,24 @@ namespace I2C_LCD1602 {
     //% weight=70 blockGap=8
     export function BacklightOff(): void {
         BK = 0
-        dat(0)
+        cmd(0)
     }
 
+    /**
+     * shift left
+     */
+    //% blockId="I2C_LCD1620_SHL" block="Shift Left"
+    //% weight=61 blockGap=8
+    export function shl(): void {
+        cmd(0x18)
+    }
+
+    /**
+     * shift right
+     */
+    //% blockId="I2C_LCD1620_SHR" block="Shift Right"
+    //% weight=60 blockGap=8
+    export function shr(): void {
+        cmd(0x1C)
+    }
 }
