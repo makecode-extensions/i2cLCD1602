@@ -1,5 +1,5 @@
 let item = 0
-I2C_LCD1602.LcdInit(63)
+I2C_LCD1602.LcdInit(0)
 I2C_LCD1602.ShowString("Hello", 0, 0)
 basic.forever(() => {
     item += 1

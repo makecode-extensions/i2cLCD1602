@@ -20,12 +20,13 @@ to search box then search.
 ## I2C Address  
 - PCF8574: 39  
 - PCF8574A: 63  
+- Auto: 0
 
 ## API
 
 - LcdInit(Addr: number)  
 Initial LCD  
-Addr: I2C Address.  
+Addr: I2C Address. If Addr is zero, it will automatic recognition correctly address.  
 
 - ShowNumber(n: number, x: number, y: number)  
 show a number in LCD at given position.  

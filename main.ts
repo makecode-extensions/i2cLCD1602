@@ -1,8 +1,8 @@
 /**
- * makecode I2C LCD1602 package for microbit.
- * From microbit/micropython Chinese community.
- * http://www.micropython.org.cn
- */
+* makecode I2C LCD1602 package for microbit.
+* From microbit/micropython Chinese community.
+* http://www.micropython.org.cn
+*/
 
 /**
  * Custom blocks
@@ -42,14 +42,44 @@ namespace I2C_LCD1602 {
         set(d << 4)
     }
 
+    // auto get LCD address
+    function AutoAddr() {
+        let k = true
+        let addr = 0x20
+        let d1 = 0, d2 = 0
+        while (k && (addr < 0x28)) {
+            pins.i2cWriteNumber(addr, 0xffffffff, NumberFormat.Int32LE)
+            d1 = pins.i2cReadNumber(addr, NumberFormat.Int8LE) % 16
+            pins.i2cWriteNumber(addr, 0, NumberFormat.Int16LE)
+            d2 = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
+            if ((d1 == 7) && (d2 == 0)) k = false
+            else addr += 1
+        }
+        if (!k) return addr
+
+        addr = 0x38
+        while (k && (addr < 0x40)) {
+            pins.i2cWriteNumber(addr, 0xffffffff, NumberFormat.Int32LE)
+            d1 = pins.i2cReadNumber(addr, NumberFormat.Int8LE) % 16
+            pins.i2cWriteNumber(addr, 0, NumberFormat.Int16LE)
+            d2 = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
+            if ((d1 == 7) && (d2 == 0)) k = false
+            else addr += 1
+        }
+        if (!k) return addr
+        else return 0
+
+    }
+
     /**
      * initial LCD, set I2C address. Address is 39/63 for PCF8574/PCF8574A
-     * @param Addr is i2c address for LCD, eg: 39, 63
+     * @param Addr is i2c address for LCD, eg: 0, 39, 63. 0 is auto find address
      */
     //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
     export function LcdInit(Addr: number) {
-        i2cAddr = Addr
+        if (Addr == 0) i2cAddr = AutoAddr()
+        else i2cAddr = Addr
         BK = 8
         RS = 0
         cmd(0x33)       // set 4bit mode
