@@ -48,7 +48,7 @@ namespace I2C_LCD1602 {
         let addr = 0x20
         let d1 = 0, d2 = 0
         while (k && (addr < 0x28)) {
-            pins.i2cWriteNumber(addr, 0xffffffff, NumberFormat.Int32LE)
+            pins.i2cWriteNumber(addr, -1, NumberFormat.Int32LE)
             d1 = pins.i2cReadNumber(addr, NumberFormat.Int8LE) % 16
             pins.i2cWriteNumber(addr, 0, NumberFormat.Int16LE)
             d2 = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
@@ -59,7 +59,7 @@ namespace I2C_LCD1602 {
 
         addr = 0x38
         while (k && (addr < 0x40)) {
-            pins.i2cWriteNumber(addr, 0xffffffff, NumberFormat.Int32LE)
+            pins.i2cWriteNumber(addr, -1, NumberFormat.Int32LE)
             d1 = pins.i2cReadNumber(addr, NumberFormat.Int8LE) % 16
             pins.i2cWriteNumber(addr, 0, NumberFormat.Int16LE)
             d2 = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
