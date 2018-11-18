@@ -1,0 +1,69 @@
+{
+  "LCD1602_I2C": {
+    "visual": {
+      "image": "parts/LCD1602_I2C.svg",
+      "width": 227,
+      "height": 102,
+      "pinDistance": 7.2,
+      "pinLocations": [
+        {
+          "x": 0.1,
+          "y": 37.4
+        },
+        {
+          "x": 0.1,
+          "y": 44.6
+        },
+        {
+          "x": 0.1,
+          "y": 51.8
+        },
+        {
+          "x": 0.1,
+          "y": 59
+        }      ]
+    },
+    "numberOfPins": 4,
+    "instantiation": {
+      "kind": "function",
+      "fullyQualifiedName": "I2C_LCD1602.LcdInit,I2C_LCD1602.ShowNumber,I2C_LCD1602.ShowString,I2C_LCD1602.on,I2C_LCD1602.off,I2C_LCD1602.clear,I2C_LCD1602.BacklightOn,I2C_LCD1602.BacklightOff,I2C_LCD1602.shl,I2C_LCD1602.shr",
+      "argumentRoles": [
+        {
+          "pinInstantiationIdx": 0
+        }
+      ]
+    },
+    "pinDefinitions": [
+      {
+        "target": "ground",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "threeVolt",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "SDA",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "SCL",
+        "style": "male",
+        "orientation": "+Y"
+      }
+    ],
+    "assembly": [
+      {
+        "pinIndices": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  }
+}
