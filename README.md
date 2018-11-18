@@ -4,18 +4,30 @@ makecode I2C LCD1602 package for micro:bit
 
 Author: shaoziyang  
 Date:   2018.Mar  
-
-![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/icon.png)  
   
-![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/lcd.jpg)
+![](lcd.jpg)
 
-## usage
+## Add extension
 
-open your microbit makecode project, in Add Package, paste  
+open your microbit makecode project, in Extension, paste  
 
-https://github.com/microbit-makecode-packages/i2cLCD1602  
+https://github.com/makecode-packages/i2cLCD1602  
 
 to search box then search.
+
+## Basic usage
+
+```
+let item = 0
+I2C_LCD1602.LcdInit(0)
+I2C_LCD1602.ShowString("Hello", 0, 0)
+basic.forever(() => {
+    item += 1
+    I2C_LCD1602.ShowNumber(item, 0, 1)
+    basic.pause(1000)
+})
+```
+
 
 ## I2C Address  
 - PCF8574: 39  
@@ -26,7 +38,7 @@ to search box then search.
 
 - LcdInit(Addr: number)  
 Initial LCD  
-Addr: I2C Address. If Addr is zero, it will automatic recognition correctly address.  
+Addr: I2C Address. If Addr is zero, it will try to recognition correctly address automaticly.  
 
 - ShowNumber(n: number, x: number, y: number)  
 show a number in LCD at given position.  
@@ -64,7 +76,7 @@ shift right screen
 
 ## Demo
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/i2cLCD1602/master/demo.jpg)
+![](demo.jpg)
 
 ## License
 
