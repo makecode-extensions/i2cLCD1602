@@ -1,14 +1,16 @@
 {
     "name": "i2cLCD1602",
     "version": "1.5.0",
-    "description": "makecode I2C LCD1602 package for micro:bit",
+    "description": "makecode I2C LCD1602 extension for micro:bit",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "pxtparts.json",
+        "LCD1602_I2C.ts",
+        "parts/LCD1602_I2C.svg"
     ],
     "testFiles": [
         "test.ts"

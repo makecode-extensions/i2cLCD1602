@@ -7,7 +7,7 @@
 /**
  * Custom blocks
  */
-//% weight=100 color=#0fbc11 icon="▀"
+//% weight=20 color=#0fbc11 icon="▀"
 namespace I2C_LCD1602 {
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // backlight control
@@ -77,6 +77,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function LcdInit(Addr: number) {
         if (Addr == 0) i2cAddr = AutoAddr()
         else i2cAddr = Addr
@@ -104,6 +105,7 @@ namespace I2C_LCD1602 {
     //% weight=90 blockGap=8
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
+    //% parts=LCD1602_I2C trackArgs=0
     export function ShowNumber(n: number, x: number, y: number): void {
         let s = n.toString()
         ShowString(s, x, y)
@@ -119,6 +121,7 @@ namespace I2C_LCD1602 {
     //% weight=90 blockGap=8
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
+    //% parts=LCD1602_I2C trackArgs=0
     export function ShowString(s: string, x: number, y: number): void {
         let a: number
 
@@ -139,6 +142,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_ON" block="turn on LCD"
     //% weight=81 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function on(): void {
         cmd(0x0C)
     }
@@ -148,6 +152,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_OFF" block="turn off LCD"
     //% weight=80 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function off(): void {
         cmd(0x08)
     }
@@ -157,6 +162,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_CLEAR" block="clear LCD"
     //% weight=85 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function clear(): void {
         cmd(0x01)
     }
@@ -166,6 +172,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_BACKLIGHT_ON" block="turn on backlight"
     //% weight=71 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function BacklightOn(): void {
         BK = 8
         cmd(0)
@@ -176,6 +183,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_BACKLIGHT_OFF" block="turn off backlight"
     //% weight=70 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function BacklightOff(): void {
         BK = 0
         cmd(0)
@@ -186,6 +194,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_SHL" block="Shift Left"
     //% weight=61 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function shl(): void {
         cmd(0x18)
     }
@@ -195,6 +204,7 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_SHR" block="Shift Right"
     //% weight=60 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
     export function shr(): void {
         cmd(0x1C)
     }
