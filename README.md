@@ -11,7 +11,7 @@ Date:   2018.Mar
 
 open your microbit makecode project, in Extension, paste  
 
-https://github.com/makecode-packages/i2cLCD1602  
+https://github.com/makecode-extensions/i2cLCD1602  
 
 to search box then search.
 
@@ -89,4 +89,4 @@ Copyright (c) 2018, microbit/micropython Chinese community
 * for PXT/microbit
 
 
-[From microbit/micropython Chinese community](http://www.micropython.org.cn)
+[From microbit/micropython Chinese community](https://www.micropython.org.cn)
