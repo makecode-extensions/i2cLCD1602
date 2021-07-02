@@ -1,5 +1,5 @@
 /**
-* makecode I2C LCD1602 package for microbit.
+* makecode I2C LCD2004 package for microbit.
 * From microbit/micropython Chinese community.
 * http://www.micropython.org.cn
 */
@@ -8,7 +8,7 @@
  * Custom blocks
  */
 //% weight=20 color=#0fbc11 icon="▀"
-namespace I2C_LCD1602 {
+namespace I2C_LCD2004 {
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // backlight control
     let RS: number      // command/data
@@ -75,9 +75,9 @@ namespace I2C_LCD1602 {
      * initial LCD, set I2C address. Address is 39/63 for PCF8574/PCF8574A
      * @param Addr is i2c address for LCD, eg: 0, 39, 63. 0 is auto find address
      */
-    //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
+    //% blockId="I2C_LCD2004_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function LcdInit(Addr: number) {
         if (Addr == 0) i2cAddr = AutoAddr()
         else i2cAddr = Addr
@@ -101,11 +101,11 @@ namespace I2C_LCD1602 {
      * @param x is LCD column position, eg: 0
      * @param y is LCD row position, eg: 0
      */
-    //% blockId="I2C_LCD1620_SHOW_NUMBER" block="show number %n|at x %x|y %y"
+    //% blockId="I2C_LCD2004_SHOW_NUMBER" block="show number %n|at x %x|y %y"
     //% weight=90 blockGap=8
-    //% x.min=0 x.max=15
-    //% y.min=0 y.max=1
-    //% parts=LCD1602_I2C trackArgs=0
+    //% x.min=0 x.max=19
+    //% y.min=0 y.max=3
+    //% parts=LCD2004_I2C trackArgs=0
     export function ShowNumber(n: number, x: number, y: number): void {
         let s = n.toString()
         ShowString(s, x, y)
@@ -117,32 +117,44 @@ namespace I2C_LCD1602 {
      * @param x is LCD column position, [0 - 15], eg: 0
      * @param y is LCD row position, [0 - 1], eg: 0
      */
-    //% blockId="I2C_LCD1620_SHOW_STRING" block="show string %s|at x %x|y %y"
+    //% blockId="I2C_LCD2004_SHOW_STRING" block="show string %s|at x %x|y %y"
     //% weight=90 blockGap=8
-    //% x.min=0 x.max=15
-    //% y.min=0 y.max=1
-    //% parts=LCD1602_I2C trackArgs=0
+    //% x.min=0 x.max=19
+    //% y.min=0 y.max=3
+    //% parts=LCD2004_I2C trackArgs=0
     export function ShowString(s: string, x: number, y: number): void {
         let a: number
 
-        if (y > 0)
-            a = 0xC0
-        else
+        if (y == 0)
             a = 0x80
+        else if (y == 1)
+            a = 0xC0
+        else if (y == 2)
+            a = 0x94
+        else
+            a = 0xD4
         a += x
         cmd(a)
 
-        for (let i = 0; i < s.length; i++) {
-            dat(s.charCodeAt(i))
+        let ableLen = 20 - x;
+        if(ableLen >= s.length){
+            for (let i = 0; i < s.length; i++) {
+                dat(s.charCodeAt(i))
+            }           
+        }
+        else{
+            for (let i = 0; i < ableLen; i++) {
+                dat(s.charCodeAt(i))
+            }           
         }
     }
 
     /**
      * turn on LCD
      */
-    //% blockId="I2C_LCD1620_ON" block="turn on LCD"
+    //% blockId="I2C_LCD2004_ON" block="turn on LCD"
     //% weight=81 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function on(): void {
         cmd(0x0C)
     }
@@ -150,9 +162,9 @@ namespace I2C_LCD1602 {
     /**
      * turn off LCD
      */
-    //% blockId="I2C_LCD1620_OFF" block="turn off LCD"
+    //% blockId="I2C_LCD2004_OFF" block="turn off LCD"
     //% weight=80 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function off(): void {
         cmd(0x08)
     }
@@ -160,9 +172,9 @@ namespace I2C_LCD1602 {
     /**
      * clear all display content
      */
-    //% blockId="I2C_LCD1620_CLEAR" block="clear LCD"
+    //% blockId="I2C_LCD2004_CLEAR" block="clear LCD"
     //% weight=85 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function clear(): void {
         cmd(0x01)
     }
@@ -170,9 +182,9 @@ namespace I2C_LCD1602 {
     /**
      * turn on LCD backlight
      */
-    //% blockId="I2C_LCD1620_BACKLIGHT_ON" block="turn on backlight"
+    //% blockId="I2C_LCD2004_BACKLIGHT_ON" block="turn on backlight"
     //% weight=71 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function BacklightOn(): void {
         BK = 8
         cmd(0)
@@ -181,9 +193,9 @@ namespace I2C_LCD1602 {
     /**
      * turn off LCD backlight
      */
-    //% blockId="I2C_LCD1620_BACKLIGHT_OFF" block="turn off backlight"
+    //% blockId="I2C_LCD2004_BACKLIGHT_OFF" block="turn off backlight"
     //% weight=70 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function BacklightOff(): void {
         BK = 0
         cmd(0)
@@ -192,9 +204,9 @@ namespace I2C_LCD1602 {
     /**
      * shift left
      */
-    //% blockId="I2C_LCD1620_SHL" block="Shift Left"
+    //% blockId="I2C_LCD2004_SHL" block="Shift Left"
     //% weight=61 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function shl(): void {
         cmd(0x18)
     }
@@ -202,9 +214,9 @@ namespace I2C_LCD1602 {
     /**
      * shift right
      */
-    //% blockId="I2C_LCD1620_SHR" block="Shift Right"
+    //% blockId="I2C_LCD2004_SHR" block="Shift Right"
     //% weight=60 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
+    //% parts=LCD2004_I2C trackArgs=0
     export function shr(): void {
         cmd(0x1C)
     }
