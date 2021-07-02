@@ -1,5 +1,5 @@
 /**
-* makecode I2C LCD1602 package for microbit.
+* makecode I2C LCD2004 package for microbit.
 * From microbit/micropython Chinese community.
 * http://www.micropython.org.cn
 */
@@ -103,8 +103,8 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_SHOW_NUMBER" block="show number %n|at x %x|y %y"
     //% weight=90 blockGap=8
-    //% x.min=0 x.max=15
-    //% y.min=0 y.max=1
+    //% x.min=0 x.max=19
+    //% y.min=0 y.max=3
     //% parts=LCD1602_I2C trackArgs=0
     export function ShowNumber(n: number, x: number, y: number): void {
         let s = n.toString()
@@ -119,21 +119,33 @@ namespace I2C_LCD1602 {
      */
     //% blockId="I2C_LCD1620_SHOW_STRING" block="show string %s|at x %x|y %y"
     //% weight=90 blockGap=8
-    //% x.min=0 x.max=15
-    //% y.min=0 y.max=1
+    //% x.min=0 x.max=19
+    //% y.min=0 y.max=3
     //% parts=LCD1602_I2C trackArgs=0
     export function ShowString(s: string, x: number, y: number): void {
         let a: number
 
-        if (y > 0)
-            a = 0xC0
-        else
+        if (y == 0)
             a = 0x80
+        else if (y == 1)
+            a = 0xC0
+        else if (y == 2)
+            a = 0x94
+        else
+            a = 0xD4
         a += x
         cmd(a)
 
-        for (let i = 0; i < s.length; i++) {
-            dat(s.charCodeAt(i))
+        let ableLen = 20 - x;
+        if(ableLen >= s.length){
+            for (let i = 0; i < s.length; i++) {
+                dat(s.charCodeAt(i))
+            }           
+        }
+        else{
+            for (let i = 0; i < ableLen; i++) {
+                dat(s.charCodeAt(i))
+            }           
         }
     }
 
