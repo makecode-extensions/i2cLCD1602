@@ -1,9 +1,9 @@
-# i2cLCD1602
+# i2cLCD2004
 
-makecode I2C LCD1602 package for micro:bit  
+makecode I2C LCD2004 package for micro:bit  
 
-Author: shaoziyang  
-Date:   2018.Mar  
+Author: jieliang Mo  
+Date:   2021.July  
   
 ![](lcd.jpg)
 
@@ -19,11 +19,11 @@ to search box then search.
 
 ```
 let item = 0
-I2C_LCD1602.LcdInit(0)
-I2C_LCD1602.ShowString("Hello", 0, 0)
+I2C_LCD2004.LcdInit(0)
+I2C_LCD2004.ShowString("Hello", 0, 0)
 basic.forever(() => {
     item += 1
-    I2C_LCD1602.ShowNumber(item, 0, 1)
+    I2C_LCD2004.ShowNumber(item, 0, 1)
     basic.pause(1000)
 })
 ```
